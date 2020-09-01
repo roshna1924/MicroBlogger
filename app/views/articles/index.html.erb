@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Blog Home</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<br>
+
+  <%= link_to '<button type="button" class="btn btn-primary" style="margin-left:5%;">+ New article</button>'.html_safe, new_article_path %>
+  <h1 class="ml-4 text-center"> MicroBlogger</h1>
+  
+<br>
+
+<!-- Page Content -->
+  <div class="container-fluid">
+	
+	<% @articles.each do |article| %>	
+	<div class="row pagination justify-content-center mb-4"">
+		<div class="card col-md-12">
+		
+			<h2 class="my-4">Title: <%= article.title %>
+					  
+		  <!-- Blog Post -->
+			<div class="card-body">
+				<p class="card-text">Text:<%= article.text %></p>
+				<%= link_to '<button type="button" class="btn btn-primary">Show &rarr;</button>'.html_safe, article_path(article) %>
+				<%= link_to '<button type="button" class="btn btn-primary">Edit &rarr;</button>'.html_safe, edit_article_path(article) %>
+				<%= link_to '<button type="button" class="btn btn-primary">Delete &rarr;</button>'.html_safe, article_path(article),
+							  method: :delete,
+							  data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+		
+	</div>
+	<% end %>
+  </div>
+	
+</body
