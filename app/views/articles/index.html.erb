@@ -11,10 +11,8 @@
   <title>Blog Home</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../assets/stylesheets/welcome.scss">
 
 </head>
 
@@ -22,8 +20,9 @@
 
 <br>
 
-  <%= link_to '<button type="button" class="btn btn-primary" style="margin-left:5%;">+ New article</button>'.html_safe, new_article_path %>
-  <h1 class="ml-4 text-center"> MicroBlogger</h1>
+  <%= link_to '<button type="button" class="btn btn-primary" style="margin-left:5%; font-size: 15px;">+ New article</button>'.html_safe, new_article_path %>
+  
+  <h1 class="text-center" Style="font-size: 35px;"><b>MicroBlogger</b></h1>
   
 <br>
 
@@ -31,22 +30,23 @@
   <div class="container-fluid">
 	
 	<% @articles.each do |article| %>	
-	<div class="row pagination justify-content-center mb-4"">
-		<div class="card col-md-12">
+	<div class="row pagination justify-content-center grid-divider">
+		<div class="span6">
+		<div class="card  col-md-12">
 		
-			<h2 class="my-4">Title: <%= article.title %>
-					  
+			<h1><%= article.title %></h1>		  
 		  <!-- Blog Post -->
 			<div class="card-body">
-				<p class="card-text">Text:<%= article.text %></p>
-				<%= link_to '<button type="button" class="btn btn-primary">Show &rarr;</button>'.html_safe, article_path(article) %>
-				<%= link_to '<button type="button" class="btn btn-primary">Edit &rarr;</button>'.html_safe, edit_article_path(article) %>
-				<%= link_to '<button type="button" class="btn btn-primary">Delete &rarr;</button>'.html_safe, article_path(article),
+				<h3 class="card-text" style="width: 450px;  word-wrap: break-word; white-space: pre-wrap;"><%= article.text %></h3>
+				<br>
+				<%= link_to '<button type="button" class="btn btn-primary" Style="font-size: 15px;">Show &rarr;</button>'.html_safe, article_path(article) %>
+				<%= link_to '<button type="button" class="btn btn-primary" Style="font-size: 15px;">Edit &rarr;</button>'.html_safe, edit_article_path(article) %>
+				<%= link_to '<button type="button" class="btn btn-primary" Style="font-size: 15px;">Delete &rarr;</button>'.html_safe, article_path(article),
 							  method: :delete,
 							  data: { confirm: 'Are you sure?' } %>
 			</div>
 		</div>
-		
+		</div>
 	</div>
 	<% end %>
   </div>

@@ -1,5 +1,25 @@
-<h1>Edit Article</h1>
- 
-<%= render 'form' %>
- 
-<%= link_to 'Back', articles_path %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <br><br>
+    <h1 class="text-center" Style="font-size: 35px;"><b>Edit Article</b></h1>
+    <br>
+    <br>
+    <div>
+        <%= render 'form' %>
+    </div>
+
+    <div  class="text-center">
+        <%= link_to '<button type="button" class="btn btn-primary" Style="font-size: 15px;">Back</button>'.html_safe, articles_path %>
+    </div>
+</body>
